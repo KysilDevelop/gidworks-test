@@ -1,0 +1,38 @@
+<div class="contract-search">
+  <input #newHero class="contract-search__area"
+  placeholder="Search contracts"
+        (keyup.enter)="addHero(newHero.value)"
+        (blur)="addHero(newHero.value); newHero.value='' ">
+
+        <span class="contract-search__refresh"></span>
+  
+      <!-- <button (click)="addHero(newHero.value)">Add</button> -->
+</div>
+
+<div class="contract-list">
+  <div class="contract-list__title">
+    <span>Recency</span>
+    <span>Hours this week</span>
+  </div>
+  <div class="contract-list__row" *ngFor="let contract of contracts">
+    <div class="contract-list__name">
+      <p>{{contract.title}}</p>
+      <p class="name">{{contract.name}}</p>
+    </div>
+    <div class="contract-list__estimate">
+      <span class="estimate--no" *ngIf="contract.hours; else estimate">{{contract.hours + ' hrs'}}</span>
+      <ng-template #estimate>
+        <span class="estimate"></span>
+      </ng-template>
+      <div class="contract-list__progress">
+        <span [ngStyle]="{'width': contract.hours ? contract.hours * 100 / 15 + '%' : 0}"></span>
+      </div>
+      <span class="total">of 15 hrs</span>
+    </div>
+    
+  </div>
+</div>
+
+
+
+    <!-- <ul><li *ngFor="let hero of heroes">{{hero}}</li></ul> -->
