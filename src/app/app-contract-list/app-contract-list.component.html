@@ -1,12 +1,10 @@
 <div class="contract-search">
   <input #newHero class="contract-search__area"
   placeholder="Search contracts"
-        (keyup.enter)="addHero(newHero.value)"
-        (blur)="addHero(newHero.value); newHero.value='' ">
+  [(ngModel)]="searchText" #it="ngModel" />
 
         <span class="contract-search__refresh"></span>
   
-      <!-- <button (click)="addHero(newHero.value)">Add</button> -->
 </div>
 
 <div class="contract-list">
@@ -32,7 +30,3 @@
     
   </div>
 </div>
-
-
-
-    <!-- <ul><li *ngFor="let hero of heroes">{{hero}}</li></ul> -->

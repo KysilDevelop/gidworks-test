@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppContractListComponent {
 
+  searchText: string = "";
+
   contracts = [
     {
       title: 'The Part of the contract',
@@ -30,13 +32,6 @@ export class AppContractListComponent {
       hours: 0
     },
   ]
-
-  heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
-  addHero(newHero: string) {
-    if (newHero) {
-      this.heroes.push(newHero);
-    }
-  }
 
 
 }
